@@ -15,7 +15,6 @@
 /initrd
 /kernel.img
 /keybow
-/keybow.lua
 /LICENCE.broadcom
 /start.elf
 /start_cd.elf
@@ -28,3 +27,5 @@
 /bcm2708-rpi-b.dtb
 /bcm2708-rpi-b-plus.dtb
 /.vs
+/layouts/
+!layouts/macros.lua
