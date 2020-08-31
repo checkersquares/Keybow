@@ -20,6 +20,8 @@
 /start_cd.elf
 /start_db.elf
 /start_x.elf
+/layouts
+/layouts_temp
 /overlays
 /patterns
 /snippets
@@ -27,4 +29,3 @@
 /bcm2708-rpi-b.dtb
 /bcm2708-rpi-b-plus.dtb
 /.vs
-/layouts
