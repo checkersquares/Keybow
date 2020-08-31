@@ -27,5 +27,4 @@
 /bcm2708-rpi-b.dtb
 /bcm2708-rpi-b-plus.dtb
 /.vs
-/layouts/
-!layouts/macros.lua
+/layouts
