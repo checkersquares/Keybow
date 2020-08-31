@@ -87,7 +87,35 @@ end
 function mode_windows(key)
     -- TODO Add windows Macros
     if key == 1 then
-        keybow.set_key("0", pressed)
+        keybow.set_key(keybow.F13, pressed)
+    elseif key == 2 then
+        keybow.set_key(keybow.F14, pressed)
+    elseif key == 3 then
+        keybow.set_key(keybow.F15, pressed)
+    elseif key == 4 then
+        keybow.set_key(keybow.F16, pressed)
+    elseif key == 5 then
+        keybow.set_key(keybow.F17, pressed)
+    elseif key == 6 then
+        keybow.set_key(keybow.F18, pressed)
+    elseif key == 7 then
+        keybow.set_key(keybow.F19, pressed)
+    elseif key == 8 then
+        keybow.set_key(keybow.F20, pressed)
+    elseif key == 9 then
+        keybow.set_key(keybow.F21, pressed)
+    elseif key == 10 then
+        keybow.set_key(keybow.F22, pressed)
+    elseif key == 11 then
+        keybow.set_key(keybow.F23, pressed)
+    end
+end
+
+function mode_csharp(key)
+    -- TODO Add C# Macros
+    if key == 1 then
+        keybow.set_key("class", pressed)
+        tabtab()
     elseif key == 2 then
         keybow.set_key(keybow.ENTER, pressed)
     elseif key == 3 then
@@ -111,31 +139,11 @@ function mode_windows(key)
     end
 end
 
-function mode_csharp(key)
-    -- TODO Add C# Macros
-    if key == 1 then
-        keybow.set_key("0", pressed)
-    elseif key == 2 then
-        keybow.set_key(keybow.ENTER, pressed)
-    elseif key == 3 then
-        keybow.set_key("1", pressed)
-    elseif key == 4 then
-        keybow.set_key("2", pressed)
-    elseif key == 5 then
-        keybow.set_key("3", pressed)
-    elseif key == 6 then
-        keybow.set_key("4", pressed)
-    elseif key == 7 then
-        keybow.set_key("5", pressed)
-    elseif key == 8 then
-        keybow.set_key("6", pressed)
-    elseif key == 9 then
-        keybow.set_key("7", pressed)
-    elseif key == 10 then
-        keybow.set_key("8", pressed)
-    elseif key == 11 then
-        keybow.set_key("9", pressed)
-    end
+function tabtab()
+    keybow.sleep(20)
+    keybow.set_key(keybow.TAB, pressed)
+    keybow.sleep(20)
+    keybow.set_key(keybow.TAB, pressed)
 end
 
 function mode_python(key)
