@@ -15,29 +15,29 @@ end
 
 -- Custom Functions
 function init()
-    local r = 255
-    local g = 255
-    local b = 255
+    local r = 0
+    local g = 0
+    local b = 0
     if current_mode == Modes.NUMPAD then 
         keybow.set_pixel(0, 255,255,255)
-        r = r - 155
-        g = g - 155
-        b = b - 155
+        r = 155
+        g = 155
+        b = 155
     elseif current_mode == Modes.WINDOWS then 
-        keybow.set_pixel(0, 135,206,250)
-        r = r - 155
-        g = g - 100
-        b = b - 55
+        keybow.set_pixel(0, 124,187,0)
+        r = 0
+        g = 161
+        b = 241
     elseif current_mode == Modes.CSHARP then
-        keybow.set_pixel(0, 128, 0, 128)
-        r = r - 55
-        g = g - 155
-        b = b - 55
+        keybow.set_pixel(0, 0, 120, 215)
+        r = 93
+        g = 43
+        b = 144
     elseif current_mode == Modes.PYTHON then
-        keybow.set_pixel(0, 255, 240, 0)
-        r = r - 55
-        g = g - 55
-        b = b - 155
+        keybow.set_pixel(0, 255, 212, 59)
+        r = 48
+        g = 105
+        b = 152
     end
     for i=1, 11 do
         keybow.set_pixel(i, r, g, b)
@@ -85,6 +85,7 @@ function mode_numpad(key)
 end
 
 function mode_windows(key)
+    -- TODO Add windows Macros
     if key == 1 then
         keybow.set_key("0", pressed)
     elseif key == 2 then
@@ -111,6 +112,7 @@ function mode_windows(key)
 end
 
 function mode_csharp(key)
+    -- TODO Add C# Macros
     if key == 1 then
         keybow.set_key("0", pressed)
     elseif key == 2 then
@@ -137,6 +139,7 @@ function mode_csharp(key)
 end
 
 function mode_python(key)
+    -- TODO Add python Macros
     if key == 1 then
         keybow.set_key("0", pressed)
     elseif key == 2 then
@@ -163,6 +166,7 @@ function mode_python(key)
 end
 
 function key_press(key)
+    -- switch by mode
     if current_mode == Modes.NUMPAD then
         mode_numpad(key)
     elseif current_mode == Modes.WINDOWS then
@@ -176,9 +180,7 @@ end
 
 -- Key mappings --
 function handle_key_00(pressed)
-    if pressed then
-        change_mode()
-    end
+    change_mode()
 end
 
 function handle_key_01(pressed)
