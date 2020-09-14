@@ -189,13 +189,9 @@ function keybow.ascii_to_hid(key)
     if not (type(key) == "string") then
         return key
     end
-
     key = key:lower()
-
     code = KEYCODES:find(key)
-    
     if code == nil then return nil end
-
     return code + 3
 end
 
