@@ -14,41 +14,61 @@ function setup()
 end
 
 -- Custom Functions
+-- Set Colors of keys
 function init()
-    local r = 0
-    local g = 0
-    local b = 0
     if current_mode == Modes.NUMPAD then 
-        r = 155
-        g = 155
-        b = 155
+        r = 255
+        g = 255
+        b = 255
+        for i=0, 11 do
+            keybow.set_pixel(i, r, g, b)
+            r = r-15
+            g = g-15
+            b = b-15
+        end
     elseif current_mode == Modes.WINDOWS then 
-        r = 0
-        g = 161
-        b = 241
+        keybow.set_pixel(0, 0,255,0)
+        -- start cmd
+        keybow.set_pixel(1, 50, 50, 50)
+        -- start chrome
+        keybow.set_pixel(2, 0, 0, 200)
+        -- start explorer
+        keybow.set_pixel(3, 120, 120, 0)
+        keybow.set_pixel(4, 0, 0, 0)
+        keybow.set_pixel(5, 0, 0, 0)
+        keybow.set_pixel(6, 0, 0, 0)
+        keybow.set_pixel(7, 0, 0, 0)
+        keybow.set_pixel(8, 0, 0, 0)
+        keybow.set_pixel(9, 0, 0, 0)
+        keybow.set_pixel(10, 0, 0, 0)
+        keybow.set_pixel(11, 0, 0, 0)
     elseif current_mode == Modes.CSHARP then
-        r = 93
-        g = 43
-        b = 144
+        keybow.set_pixel(0, 255, 0, 255)
+        -- class
+        keybow.set_pixel(1, 0, 0, 0)
+        keybow.set_pixel(2, 0, 0, 0)
+        keybow.set_pixel(3, 0, 0, 0)
+        keybow.set_pixel(4, 0, 0, 0)
+        keybow.set_pixel(5, 0, 0, 0)
+        keybow.set_pixel(6, 0, 0, 0)
+        keybow.set_pixel(7, 0, 0, 0)
+        keybow.set_pixel(8, 0, 0, 0)
+        keybow.set_pixel(9, 0, 0, 0)
+        keybow.set_pixel(10, 0, 0, 0)
+        keybow.set_pixel(11, 0, 0, 0)
     elseif current_mode == Modes.PYTHON then
-        r = 48
-        g = 105
-        b = 152
-    end
-    for i=1, 11 do
-        keybow.set_pixel(i, r, g, b)
-    end
-end
-
-function set_mode_key()
-    if current_mode == Modes.NUMPAD then 
-        keybow.set_pixel(0, 255,255,255)
-    elseif current_mode == Modes.WINDOWS then 
-        keybow.set_pixel(0, 124,187,0)
-    elseif current_mode == Modes.CSHARP then
-        keybow.set_pixel(0, 0, 120, 215)
-    elseif current_mode == Modes.PYTHON then
-        keybow.set_pixel(0, 255, 212, 59)
+        keybow.set_pixel(0, 0, 255, 0)
+        keybow.set_pixel(1, 0, 0, 0)
+        keybow.set_pixel(2, 0, 0, 0)
+        keybow.set_pixel(3, 0, 0, 0)
+        keybow.set_pixel(4, 0, 0, 0)
+        keybow.set_pixel(5, 0, 0, 0)
+        keybow.set_pixel(6, 0, 0, 0)
+        keybow.set_pixel(7, 0, 0, 0)
+        keybow.set_pixel(8, 0, 0, 0)
+        keybow.set_pixel(9, 0, 0, 0)
+        keybow.set_pixel(10, 0, 0, 0)
+        keybow.set_pixel(11, 0, 0, 0)
     end
 end
 
