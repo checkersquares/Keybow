@@ -78,17 +78,28 @@ function init()
         keybow.set_pixel(11, 56, 154, 66)
     elseif current_mode == Modes.PYTHON then
         keybow.set_pixel(0, 0, 255, 0)
-        keybow.set_pixel(1, 0, 0, 0)
-        keybow.set_pixel(2, 0, 0, 0)
-        keybow.set_pixel(3, 0, 0, 0)
-        keybow.set_pixel(4, 0, 0, 0)
-        keybow.set_pixel(5, 0, 0, 0)
-        keybow.set_pixel(6, 0, 0, 0)
-        keybow.set_pixel(7, 0, 0, 0)
-        keybow.set_pixel(8, 0, 0, 0)
-        keybow.set_pixel(9, 0, 0, 0)
-        keybow.set_pixel(10, 0, 0, 0)
-        keybow.set_pixel(11, 0, 0, 0)
+        -- public
+        keybow.set_pixel(1, 0, 255, 0)
+        -- private
+        keybow.set_pixel(2, 255, 0, 0)
+        -- class
+        keybow.set_pixel(3, 0, 255, 127)
+        -- interface
+        keybow.set_pixel(4, 173, 255, 47)
+        -- constructor
+        keybow.set_pixel(5, 255, 255, 255)
+        -- property
+        keybow.set_pixel(6, 30, 144, 255)
+        -- full property
+        keybow.set_pixel(7, 0, 114, 225)
+        -- Binding
+        keybow.set_pixel(8, 160, 82, 45)
+        -- region
+        keybow.set_pixel(9, 50, 50, 50)
+        -- endregion
+        keybow.set_pixel(10, 20, 20, 20)
+        -- comment
+        keybow.set_pixel(11, 56, 154, 66)
     end
 end
 
@@ -215,27 +226,32 @@ end
 function mode_python(key)
     -- TODO Add python Macros
     if key == 1 then
-        keybow.set_key("0", pressed)
+        keybow.text("public ", pressed)
     elseif key == 2 then
-        keybow.set_key(keybow.ENTER, pressed)
+        keybow.text("private ", pressed)
     elseif key == 3 then
-        keybow.set_key("1", pressed)
+        keybow.text("class", pressed)
+        tabtab()
     elseif key == 4 then
-        keybow.set_key("2", pressed)
+        keybow.text("interface", pressed)
+        tabtab()
     elseif key == 5 then
-        keybow.set_key("3", pressed)
+        keybow.text("ctor", pressed)
+        tabtab()
     elseif key == 6 then
-        keybow.set_key("4", pressed)
+        keybow.text("prop", pressed)
+        tabtab()
     elseif key == 7 then
-        keybow.set_key("5", pressed)
+        keybow.text("for", pressed)
+        tabtab()
     elseif key == 8 then
-        keybow.set_key("6", pressed)
+        keybow.text("{Binding Path}", pressed)
     elseif key == 9 then
-        keybow.set_key("7", pressed)
+        keybow.text("#region ", pressed)
     elseif key == 10 then
-        keybow.set_key("8", pressed)
+        keybow.text("#endregion", pressed)
     elseif key == 11 then
-        keybow.set_key("9", pressed)
+        keybow.text("// ", pressed)
     else
         keybow.text("Error", pressed)
     end
