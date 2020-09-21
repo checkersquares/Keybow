@@ -17,45 +17,65 @@ end
 -- Set Colors of keys
 function init()
     if current_mode == Modes.NUMPAD then 
+        keybow.set_pixel(0, 255, 0, 0)
         r = 255
         g = 255
         b = 255
-        for i=0, 11 do
+        for i=1, 11 do
             keybow.set_pixel(i, r, g, b)
             r = r-15
             g = g-15
             b = b-15
         end
     elseif current_mode == Modes.WINDOWS then 
-        keybow.set_pixel(0, 0,255,0)
+        keybow.set_pixel(0, 0, 255, 0)
         -- start cmd
         keybow.set_pixel(1, 50, 50, 50)
         -- start chrome
-        keybow.set_pixel(2, 0, 0, 200)
+        keybow.set_pixel(2, 65, 129, 238)
         -- start explorer
-        keybow.set_pixel(3, 120, 120, 0)
-        keybow.set_pixel(4, 0, 0, 0)
-        keybow.set_pixel(5, 0, 0, 0)
-        keybow.set_pixel(6, 0, 0, 0)
-        keybow.set_pixel(7, 0, 0, 0)
-        keybow.set_pixel(8, 0, 0, 0)
-        keybow.set_pixel(9, 0, 0, 0)
-        keybow.set_pixel(10, 0, 0, 0)
-        keybow.set_pixel(11, 0, 0, 0)
+        keybow.set_pixel(3, 246, 204, 91)
+        -- start VNC
+        keybow.set_pixel(4,39, 135, 236)
+        -- start Word
+        keybow.set_pixel(5, 42, 85, 148)
+        -- start Excel
+        keybow.set_pixel(6, 32, 112, 70)
+        -- start control panel
+        keybow.set_pixel(7, 0, 114, 205)
+        -- start GitHub
+        keybow.set_pixel(8, 48, 47, 47)
+        -- Start Wisual Studio
+        keybow.set_pixel(9, 101, 32, 118)
+        -- Start VS Code
+        keybow.set_pixel(10, 34, 160, 233)
+        -- Start Notepad
+        keybow.set_pixel(11, 164, 235, 122)
     elseif current_mode == Modes.CSHARP then
+        -- Switch button
         keybow.set_pixel(0, 255, 0, 255)
+        -- public
+        keybow.set_pixel(1, 0, 255, 0)
+        -- private
+        keybow.set_pixel(2, 255, 0, 0)
         -- class
-        keybow.set_pixel(1, 0, 0, 0)
-        keybow.set_pixel(2, 0, 0, 0)
-        keybow.set_pixel(3, 0, 0, 0)
-        keybow.set_pixel(4, 0, 0, 0)
-        keybow.set_pixel(5, 0, 0, 0)
-        keybow.set_pixel(6, 0, 0, 0)
-        keybow.set_pixel(7, 0, 0, 0)
-        keybow.set_pixel(8, 0, 0, 0)
-        keybow.set_pixel(9, 0, 0, 0)
-        keybow.set_pixel(10, 0, 0, 0)
-        keybow.set_pixel(11, 0, 0, 0)
+        keybow.set_pixel(3, 0, 255, 127)
+        -- interface
+        keybow.set_pixel(4, 173, 255, 47)
+        -- constructor
+        keybow.set_pixel(5, 255, 255, 255)
+        -- property
+        keybow.set_pixel(6, 30, 144, 255)
+        -- full property
+        keybow.set_pixel(7, 0, 114, 225)
+        -- Binding
+        keybow.set_pixel(8, 160, 82, 45)
+        -- region
+        keybow.set_pixel(9, 50, 50, 50)
+        -- endregion
+        keybow.set_pixel(10, 20, 20, 20)
+        -- comment
+        keybow.set_pixel(11, 56, 154, 66)
     elseif current_mode == Modes.PYTHON then
         keybow.set_pixel(0, 0, 255, 0)
         keybow.set_pixel(1, 0, 0, 0)
@@ -117,67 +137,71 @@ end
 function mode_windows(key)
     -- TODO Add windows Macros
     if key == 1 then
-        keybow.tap_key(keybow.F13, pressed)
+        open_program("cmd")
     elseif key == 2 then
-        keybow.tap_key(keybow.F14, pressed)
+        open_program("Chrome")
     elseif key == 3 then
-        keybow.tap_key(keybow.F15, pressed)
+        open_program("Explorer")
     elseif key == 4 then
-        keybow.tap_key(keybow.F16, pressed)
+        open_program("VNC")
     elseif key == 5 then
-        keybow.tap_key(keybow.F17, pressed)
+        open_program("Word")
     elseif key == 6 then
-        keybow.tap_key(keybow.F18, pressed)
+        open_program("Excel")
     elseif key == 7 then
-        keybow.tap_key(keybow.F19, pressed)
+        open_program("control")
     elseif key == 8 then
-        keybow.tap_key(keybow.F20, pressed)
+        open_program("GitHub")
     elseif key == 9 then
-        keybow.tap_key(keybow.F21, pressed)
+        open_program("Visual Studio")
     elseif key == 10 then
-        keybow.tap_key(keybow.F22, pressed)
+        open_program("Visual Studio Code")
     elseif key == 11 then
-        keybow.tap_key(keybow.F23, pressed)
+        open_program("Notepad")
     else
         keybow.text("Error", pressed)
     end
 end
 
+function open_program(name)
+    keybow.set_modifier(keybow.LEFT_META, keybow.KEY_DOWN)
+    keybow.tap_key("s", pressed)
+    keybow.set_modifier(keybow.LEFT_META, keybow.KEY_UP)
+    keybow.sleep(20)
+    keybow.text(name, pressed)
+    keybow.sleep(20)
+    keybow.tap_enter()
+end
+
 function mode_csharp(key)
     -- TODO Add C# Macros
     if key == 1 then
-        keybow.text("class", pressed)
-        tabtab()
+        keybow.text("public ", pressed)
     elseif key == 2 then
-        keybow.text("prop", pressed)
-        tabtab()
+        keybow.text("private ", pressed)
     elseif key == 3 then
-        keybow.text("propfull", pressed)
+        keybow.text("class", pressed)
         tabtab()
     elseif key == 4 then
-        keybow.text("class", pressed)
+        keybow.text("interface", pressed)
         tabtab()
     elseif key == 5 then
-        keybow.text("class", pressed)
+        keybow.text("ctor", pressed)
         tabtab()
     elseif key == 6 then
-        keybow.text("class", pressed)
+        keybow.text("prop", pressed)
         tabtab()
     elseif key == 7 then
-        keybow.text("class", pressed)
+        keybow.text("propfull", pressed)
         tabtab()
     elseif key == 8 then
-        keybow.text("class", pressed)
-        tabtab()
+        keybow.text("{Binding Path}", pressed)
     elseif key == 9 then
-        keybow.text("class", pressed)
-        tabtab()
+        keybow.text("#region ", pressed)
     elseif key == 10 then
-        keybow.text("class", pressed)
-        tabtab()
+        keybow.text("#endregion", pressed)
     elseif key == 11 then
-        keybow.text("class", pressed)
-        tabtab()
+        keybow.text("// ", pressed)
     else
         keybow.text("Error", pressed)
     end
